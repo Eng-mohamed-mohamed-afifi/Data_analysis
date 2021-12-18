@@ -16,7 +16,7 @@ dataset.describe()
 #--------Showing Company -----------
 #----------------------------------------
 print(">>>>>>>>>>popular Company >>>>>>>>>>>")
-numOfjops=dataset['Company'].value_counts().head(5)
+numOfjops=dataset['Company'].value_counts().head()
 print(numOfjops)
 labels=["Confidential","EGIC","Mishkat Nour","Expand Cart","Majorel Egypt"]
 plt.pie(numOfjops,labels = labels)
@@ -25,7 +25,7 @@ plt.show()
 #--------most popular jops -----------
 #----------------------------------------
 print(">>>>>>>>>>popular jops >>>>>>>>>>>")
-jops=dataset['Title'].value_counts().head(5)
+jops=dataset['Title'].value_counts().head()
 print(jops)
 plt.xlabel("jop_title")
 plt.ylabel("NumberOfjop")
@@ -36,7 +36,7 @@ plt.show()
 #----------------------------------------
 #--------most popular areas -----------
 #----------------------------------------
-areas=dataset['Location'].value_counts().head(5)
+areas=dataset['Location'].value_counts().head()
 print(areas)
 plt.xlabel("Location_Name")
 plt.ylabel("NumberOfLocation")
@@ -47,7 +47,7 @@ plt.show()
 #----------------------------------------
 #--------most popular areas -----------
 #----------------------------------------
-skills=dataset['Skills'].value_counts().head(5)
+skills=dataset['Skills'].value_counts().head()
 print(">>>>>>>>>>popular skills >>>>>>>>>>>")
 print(skills)
 skillsLabel=["Corporate_Sales"," SAP"," Sales_Target","Finance","Property"]
