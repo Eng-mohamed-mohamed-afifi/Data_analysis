@@ -10,8 +10,8 @@ dataset.describe()
 #----------------------------------------
 #--------Cleaning data-----------
 #----------------------------------------
-# dataset.sort_values("Title", inplace = True)
-# dataset.drop_duplicates(subset ="Title",keep = "first", inplace = True)
+dataset.sort_values("Title", inplace = True)
+dataset.drop_duplicates(keep = "first", inplace = True)
 #----------------------------------------
 #--------Showing Company -----------
 #----------------------------------------
