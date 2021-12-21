@@ -12,13 +12,19 @@ dataset.describe()
 #----------------------------------------
 dataset.sort_values("Title", inplace = True)
 dataset.drop_duplicates(keep = "first", inplace = True)
+X = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, 7].values
+
+imputer = SimpleImputer(missing_values = "", strategy = 'most_frequent')
+imputer = imputer.fit(X[:, 0:7])
+X[:, 0:7] = imputer.transform(X[:, 0:7])
 #----------------------------------------
 #--------Showing Company -----------
 #----------------------------------------
 print(">>>>>>>>>>popular Company >>>>>>>>>>>")
 numOfjops=dataset['Company'].value_counts().head()
 print(numOfjops)
-labels=["Confidential","EGIC","Mishkat Nour","Expand Cart","Majorel Egypt"]
+labels=list(numOfjops.keys())
 plt.pie(numOfjops,labels = labels)
 plt.show()
 #----------------------------------------
@@ -41,7 +47,7 @@ print(areas)
 plt.xlabel("Location_Name")
 plt.ylabel("NumberOfLocation")
 plt.title("most popular location")
-locLable=[" Cairo"," Maadi","New Cairo"," Nasr City","6th of October"]
+locLable=list(areas.keys())
 plt.bar(locLable,areas)
 plt.show()
 #----------------------------------------
@@ -50,7 +56,7 @@ plt.show()
 skills=dataset['Skills'].value_counts().head()
 print(">>>>>>>>>>popular skills >>>>>>>>>>>")
 print(skills)
-skillsLabel=["Corporate_Sales"," SAP"," Sales_Target","Finance","Property"]
+skillsLabel=list(skills.keys())
 plt.xlabel("skill")
 plt.ylabel("NumberOskills")
 plt.title("most popular skills")
